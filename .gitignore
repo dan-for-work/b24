@@ -1,0 +1,32 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+.npm
+
+# Build Output
+dist/
+build/
+out/
+.next/
+.svelte-kit/
+*.tgz
+
+# Environment
+.env*
+!.env.example
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+*.sublime-project
+*.sublime-workspace
+sftp-config.json
+.DS_Store
+.tmp
+.trashes
+*~   
