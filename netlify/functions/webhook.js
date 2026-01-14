@@ -37,8 +37,13 @@ async function saveExecution(execution) {
   data.updatedAt = new Date().toISOString();
   data.executions = data.executions.slice(-200);
 
-  await store.set(STORE_KEY, data);
+  await store.set(
+    STORE_KEY,
+    JSON.stringify(data),
+    { contentType: "application/json" }
+  );
 }
+
 
 // =====================
 // HANDLER (v2)
