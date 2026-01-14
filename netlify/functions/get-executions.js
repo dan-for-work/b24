@@ -1,14 +1,13 @@
 import { getStore } from "@netlify/blobs";
 
-export async function handler() {
+export default async (request) => {
   const store = getStore("executions");
   const data = await store.get("executions.json", { type: "json" });
 
-  return {
-    statusCode: 200,
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data ?? { executions: [] })
-  };
-}
+  return new Response(
+    JSON.stringify(data ?? { executions: [] }),
+    {
+      headers: { "Content-Type": "application/json" }
+    }
+  );
+};
