@@ -35,20 +35,20 @@ async function saveExecution(execution) {
 
   data.executions.push(execution);
   data.updatedAt = new Date().toISOString();
-
-  // ограничим размер (демо)
   data.executions = data.executions.slice(-200);
 
   await store.set(STORE_KEY, data);
 }
 
 // =====================
-// HANDLER
+// HANDLER (v2)
 // =====================
-export async function handler(event) {
+export default async (request) => {
   const startedAt = Date.now();
 
-  const body = new URLSearchParams(event.body || "");
+  const bodyText = await request.text();
+  const body = new URLSearchParams(bodyText);
+
   const entityTypeId = body.get("data[FIELDS][ENTITY_TYPE_ID]");
   const projectId = body.get("data[FIELDS][ID]");
 
@@ -127,7 +127,6 @@ export async function handler(event) {
     // --- check selected application
     if (!project.parentId1376) {
       log("no selected application — nothing to do");
-      execution.steps.applicationChanged = false;
       execution.status = "success";
       execution.durationMs = Date.now() - startedAt;
       await saveExecution(execution);
@@ -139,9 +138,7 @@ export async function handler(event) {
     // --- load applications
     const appsRes = await callRest("crm.item.list", {
       entityTypeId: APPLICATION_ENTITY_TYPE_ID,
-      filter: {
-        parentId1372: projectId
-      },
+      filter: { parentId1372: projectId },
       select: ["id", "stageId"]
     });
 
@@ -160,9 +157,7 @@ export async function handler(event) {
         continue;
       }
 
-      if (appl.stageId === FAIL_STAGE) {
-        continue;
-      }
+      if (appl.stageId === FAIL_STAGE) continue;
 
       await callRest("crm.item.update", {
         entityTypeId: APPLICATION_ENTITY_TYPE_ID,
@@ -196,20 +191,15 @@ export async function handler(event) {
     execution.durationMs = Date.now() - startedAt;
 
     await saveExecution(execution);
-
-    return {
-      statusCode: 500,
-      body: "error"
-    };
+    return error("error", 500);
   }
-}
+};
 
 // =====================
 // HELPERS
 // =====================
 async function callRest(method, data) {
-  const BITRIX_WEBHOOK = process.env.BITRIX_WEBHOOK;
-  const url = `${BITRIX_WEBHOOK}${method}.json`;
+  const url = `${process.env.BITRIX_WEBHOOK}${method}.json`;
 
   const res = await fetch(url, {
     method: "POST",
@@ -221,8 +211,9 @@ async function callRest(method, data) {
 }
 
 function ok(message) {
-  return {
-    statusCode: 200,
-    body: message
-  };
+  return new Response(message, { status: 200 });
+}
+
+function error(message, status = 500) {
+  return new Response(message, { status });
 }
