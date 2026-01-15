@@ -16,9 +16,7 @@ export default async (request) => {
     
     try {
         
-        log("debug", "step:start:parseRequest");
         const parsed = await parseRequest(request);
-        log("debug", "step:end:parseRequest");
         
         ctx = createExecutionContext(parsed);
         const log = createLogger(ctx);
