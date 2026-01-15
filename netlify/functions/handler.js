@@ -13,10 +13,10 @@ import { ok, error } from "./utils/response.js";
 
 export default async (request) => {
     let ctx;
-
+    
+    const log = createLogger(ctx);
+    log("debug", "service:end:createLogger");
     try {
-        const log = createLogger(ctx);
-        log("debug", "service:end:createLogger");
 
         log("debug", "step:start:parseRequest");
         const parsed = await parseRequest(request);
