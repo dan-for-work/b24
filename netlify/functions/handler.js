@@ -12,41 +12,71 @@ import { SkipExecution } from "./utils/errors.js";
 import { ok, error } from "./utils/response.js";
 
 export default async (request) => {
-  let ctx;
+    let ctx;
 
-  try {
-    const parsed = await parseRequest(request);
-    ctx = createExecutionContext(parsed);
-    const log = createLogger(ctx);
+    log("info", "handler started", {
+        projectId: ctx.execution.project.id,
+        debug: ctx.execution.debug,
+        dryRun: ctx.execution.dryRun
+    });
 
-    await validateEntity(ctx, log);
-    await loadProject(ctx, log);
+    try {
+        log("debug", "step:start:parseRequest");
+        const parsed = await parseRequest(request);
+        log("debug", "step:end:parseRequest");
 
-    if (!ctx.execution.project.selectedApplicationId) {
-      log("info", "no selected application — nothing to do");
-      ctx.execution.status = "success";
-      return ok("nothing to do");
+        log("debug", "service:start:createExecutionContext");
+        ctx = createExecutionContext(parsed);
+        log("debug", "service:end:createExecutionContext");
+        log("debug", "service:start:createLogger");
+        const log = createLogger(ctx);
+        log("debug", "service:end:createLogger");
+
+        log("debug", "step:start:validateEntity");
+        await validateEntity(ctx, log);
+        log("debug", "step:end:validateEntity");
+        log("debug", "step:start:loadProject");
+        await loadProject(ctx, log);
+        log("debug", "step:end:loadProject");
+
+        if (!ctx.execution.project.selectedApplicationId) {
+            log("info", "no selected application — nothing to do");
+            ctx.execution.status = "success";
+            return ok("nothing to do");
+        }
+
+        log("debug", "step:start:loadApplications");
+        await loadApplications(ctx, log);
+        log("debug", "step:end:loadApplications");
+        log("debug", "step:start:processApplications");
+        await processApplications(ctx, log);
+        log("debug", "step:end:processApplications");
+
+        ctx.execution.status = "success";
+
+        log("info", "handler finished", {
+            status: ctx.execution.status,
+            applicationsUpdated: ctx.execution.steps.applicationsUpdated
+        });
+        return ok("processed");
+    } catch (e) {
+        log("error", "handler failed", {
+            error: String(e),
+            step: ctx.execution.steps
+        });
+        if (e instanceof SkipExecution) {
+            ctx.execution.status = "skipped";
+            return ok(e.message);
+        }
+
+        ctx.execution.status = "error";
+        ctx.execution.error = String(e);
+        ctx.execution.debugSnapshot = ctx.data;
+        return error("error", 500);
+    } finally {
+        if (ctx) {
+            ctx.execution.durationMs = Date.now() - ctx.startedAt;
+            await saveExecution(ctx.execution);
+        }
     }
-
-    await loadApplications(ctx, log);
-    await processApplications(ctx, log);
-
-    ctx.execution.status = "success";
-    return ok("processed");
-  } catch (e) {
-    if (e instanceof SkipExecution) {
-      ctx.execution.status = "skipped";
-      return ok(e.message);
-    }
-
-    ctx.execution.status = "error";
-    ctx.execution.error = String(e);
-    ctx.execution.debugSnapshot = ctx.data;
-    return error("error", 500);
-  } finally {
-    if (ctx) {
-      ctx.execution.durationMs = Date.now() - ctx.startedAt;
-      await saveExecution(ctx.execution);
-    }
-  }
 };
