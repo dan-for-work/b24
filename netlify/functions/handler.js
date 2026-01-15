@@ -14,17 +14,14 @@ import { ok, error } from "./utils/response.js";
 export default async (request) => {
     let ctx;
     
-    const log = createLogger(ctx);
-    log("debug", "service:end:createLogger");
     try {
-
+        
         log("debug", "step:start:parseRequest");
         const parsed = await parseRequest(request);
         log("debug", "step:end:parseRequest");
-
-        log("debug", "service:start:createExecutionContext");
+        
         ctx = createExecutionContext(parsed);
-        log("debug", "service:end:createExecutionContext");
+        const log = createLogger(ctx);
 
         log("debug", "step:start:validateEntity");
         await validateEntity(ctx, log);
