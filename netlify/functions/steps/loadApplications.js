@@ -1,22 +1,21 @@
 import { bitrix } from "../services/bitrix.js";
 
 export async function loadApplications(ctx, log) {
-    log("debug", "loading applications", {
-        projectId: ctx.execution.project.id
-    });
-    const res = await bitrix.listApplications(ctx.execution.project.id);
-    const apps = res?.result?.items ?? [];
+  const projectId = ctx.execution.project.id;
 
-    if (apps.length === 0) {
-        log("warn", "no applications found for project", {
-            projectId: ctx.execution.project.id
-        });
-    }
+  log("debug", "loading applications", { projectId });
 
-    ctx.data.applications = apps;
-    ctx.execution.steps.applicationsFetched = apps.length;
+  const res = await bitrix.listApplications(projectId);
+  const applications = res?.result?.items ?? [];
 
-    log("info", "applications loaded", {
-        count: apps.length
-    });
+  ctx.data.applications = applications;
+  ctx.execution.steps.applicationsFetched = applications.length;
+
+  log("info", "applications loaded", {
+    count: applications.length
+  });
+
+  if (applications.length === 0) {
+    log("warn", "no applications found for project", { projectId });
+  }
 }
