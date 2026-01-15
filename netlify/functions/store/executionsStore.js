@@ -19,7 +19,7 @@ export async function loadStore() {
     return raw;
 }
 
-export async function saveExecution(execution) {
+export async function saveExecution(execution, log) {
     log("debug", "saving execution", {
         executionId: ctx.execution.id,
         status: ctx.execution.status

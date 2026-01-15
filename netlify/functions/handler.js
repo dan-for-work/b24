@@ -14,13 +14,10 @@ import { ok, error } from "./utils/response.js";
 export default async (request) => {
     let ctx;
 
-    log("info", "handler started", {
-        projectId: ctx.execution.project.id,
-        debug: ctx.execution.debug,
-        dryRun: ctx.execution.dryRun
-    });
-
     try {
+        const log = createLogger(ctx);
+        log("debug", "service:end:createLogger");
+
         log("debug", "step:start:parseRequest");
         const parsed = await parseRequest(request);
         log("debug", "step:end:parseRequest");
@@ -28,9 +25,6 @@ export default async (request) => {
         log("debug", "service:start:createExecutionContext");
         ctx = createExecutionContext(parsed);
         log("debug", "service:end:createExecutionContext");
-        log("debug", "service:start:createLogger");
-        const log = createLogger(ctx);
-        log("debug", "service:end:createLogger");
 
         log("debug", "step:start:validateEntity");
         await validateEntity(ctx, log);
@@ -76,7 +70,7 @@ export default async (request) => {
     } finally {
         if (ctx) {
             ctx.execution.durationMs = Date.now() - ctx.startedAt;
-            await saveExecution(ctx.execution);
+            await saveExecution(ctx.execution, log);
         }
     }
 };
