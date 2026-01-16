@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-// import { fetchExecutions } from "./api";
-import dataJSON from "./logs.json";
+import { fetchExecutions } from "./api";
 
 function levelColor(level) {
   switch (level) {
