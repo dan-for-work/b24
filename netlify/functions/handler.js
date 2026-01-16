@@ -217,6 +217,10 @@ export default async (request) => {
     logger.error(`Unhandled exception: ${e.stack || e}`);
     await logger.flush();
     return error("error", 500);
+  } finally {
+    logger.error(`Processing finished. Flushing`);
+    await logger.flush();
+    return ok("processed", 200);
   }
 };
 
