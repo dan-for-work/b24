@@ -14,9 +14,9 @@ export default function App() {
   const [data, setData] = useState(dataJSON);
   const [selected, setSelected] = useState(null);
 
-  // useEffect(() => {
-  //   fetchExecutions().then(setData);
-  // }, []);
+  useEffect(() => {
+    fetchExecutions().then(setData);
+  }, []);
 
   if (!data) {
     return (
