@@ -15,7 +15,7 @@ const { getStore } = require("@netlify/blobs");
 
 const LOG_STORE = "logs";
 
-async function createBlobLogger(executionId) {
+function createBlobLogger(executionId) {
   const store = getStore(LOG_STORE);
   const lines = [];
 
