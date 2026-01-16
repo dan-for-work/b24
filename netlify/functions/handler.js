@@ -1,5 +1,3 @@
-import { getStore } from "@netlify/blobs";
-
 // =====================
 // CONSTANTS
 // =====================
@@ -13,7 +11,7 @@ const FAIL_STAGE = "DT1376_246:FAIL";
 // =====================
 // STORE HELPERS
 // =====================
-import { getStore } from "@netlify/blobs";
+const { getStore } = require("@netlify/blobs");
 
 const LOG_STORE = "logs";
 
