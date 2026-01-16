@@ -12,9 +12,7 @@ const FAIL_STAGE = "DT1376_246:FAIL";
 // =====================
 // STORE HELPERS
 // =====================
-const { getStore } = require("@netlify/blobs");
-
-const LOG_STORE = "logs";
+import { getStore } from "@netlify/blobs";
 
 function createExecutionLogger({ executionId, objectId, entityTypeId }) {
   const textStore = getStore(TEXT_LOG_STORE);
