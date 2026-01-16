@@ -11,7 +11,7 @@ function levelColor(level) {
 }
 
 export default function App() {
-  const [data, setData] = useState(dataJSON);
+  const [data, setData] = useState(null);
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
