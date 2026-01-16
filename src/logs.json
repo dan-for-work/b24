@@ -1,0 +1,842 @@
+{
+  "version": 1,
+  "updatedAt": "2026-01-16T09:03:18.631Z",
+  "records": [
+    {
+      "id": "exec_1768551309539_25e5963d27ef9",
+      "objectId": "34",
+      "entityTypeId": "1372",
+      "startedAt": "2026-01-16T08:15:09.542Z",
+      "finishedAt": "2026-01-16T08:15:10.755Z",
+      "logs": [
+        {
+          "level": "info",
+          "time": "2026-01-16T08:15:09.542Z",
+          "message": "Webhook handler started"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:15:09.542Z",
+          "message": "Raw request body received (428 chars)"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:15:09.542Z",
+          "message": "Parsed fields: ENTITY_TYPE_ID=1372, PROJECT_ID=34"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:15:09.542Z",
+          "message": "Processing project with ID=34"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:15:09.542Z",
+          "message": "Loading project from Bitrix24"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:15:10.396Z",
+          "message": "Project loaded successfully: TITLE=\"Биржа проектов #34\""
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:15:10.396Z",
+          "message": "Selected application detected: APPLICATION_ID=26"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:15:10.397Z",
+          "message": "Loading all applications linked to the project"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:15:10.754Z",
+          "message": "Total applications found: 3"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:15:10.754Z",
+          "message": "Processing application ID=44, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:15:10.754Z",
+          "message": "Application 44 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:15:10.754Z",
+          "message": "Processing application ID=46, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:15:10.754Z",
+          "message": "Application 46 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:15:10.754Z",
+          "message": "Processing application ID=48, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:15:10.755Z",
+          "message": "Application 48 already in FAIL stage — skipping"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:15:10.755Z",
+          "message": "Processing finished successfully. Failed applications: 0"
+        }
+      ]
+    },
+    {
+      "id": "exec_1768551511498_4845d62d846d4",
+      "objectId": "38",
+      "entityTypeId": "1372",
+      "startedAt": "2026-01-16T08:18:31.534Z",
+      "finishedAt": "2026-01-16T08:18:32.608Z",
+      "logs": [
+        {
+          "level": "info",
+          "time": "2026-01-16T08:18:31.534Z",
+          "message": "Webhook handler started"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:18:31.534Z",
+          "message": "Raw request body received (428 chars)"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:18:31.534Z",
+          "message": "Parsed fields: ENTITY_TYPE_ID=1372, PROJECT_ID=38"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:18:31.534Z",
+          "message": "Processing project with ID=38"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:18:31.534Z",
+          "message": "Loading project from Bitrix24"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:18:32.253Z",
+          "message": "Project loaded successfully: TITLE=\"Биржа проектов #38\""
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:18:32.253Z",
+          "message": "Selected application detected: APPLICATION_ID=56"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:18:32.253Z",
+          "message": "Loading all applications linked to the project"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:18:32.608Z",
+          "message": "Total applications found: 4"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:18:32.608Z",
+          "message": "Processing application ID=36, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:18:32.608Z",
+          "message": "Application 36 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:18:32.608Z",
+          "message": "Processing application ID=38, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:18:32.608Z",
+          "message": "Application 38 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:18:32.608Z",
+          "message": "Processing application ID=40, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:18:32.608Z",
+          "message": "Application 40 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:18:32.608Z",
+          "message": "Processing application ID=56, STAGE=DT1376_246:SUCCESS"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:18:32.608Z",
+          "message": "Application 56 is selected — skipping"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:18:32.608Z",
+          "message": "Processing finished successfully. Failed applications: 0"
+        }
+      ]
+    },
+    {
+      "id": "exec_1768552974186_2b3d44219cf3d",
+      "objectId": "38",
+      "entityTypeId": "1372",
+      "startedAt": "2026-01-16T08:42:54.189Z",
+      "finishedAt": "2026-01-16T08:42:55.343Z",
+      "logs": [
+        {
+          "level": "info",
+          "time": "2026-01-16T08:42:54.189Z",
+          "message": "Webhook handler started"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:42:54.189Z",
+          "message": "Raw request body received (428 chars)"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:42:54.189Z",
+          "message": "Parsed fields: ENTITY_TYPE_ID=1372, PROJECT_ID=38"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:42:54.189Z",
+          "message": "Processing project with ID=38"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:42:54.189Z",
+          "message": "Loading project from Bitrix24"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:42:55.059Z",
+          "message": "Project loaded successfully: TITLE=\"Биржа проектов #38\""
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:42:55.059Z",
+          "message": "Selected application detected: APPLICATION_ID=56"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:42:55.059Z",
+          "message": "Loading all applications linked to the project"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:42:55.342Z",
+          "message": "Total applications found: 4"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:42:55.343Z",
+          "message": "Processing application ID=36, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:42:55.343Z",
+          "message": "Application 36 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:42:55.343Z",
+          "message": "Processing application ID=38, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:42:55.343Z",
+          "message": "Application 38 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:42:55.343Z",
+          "message": "Processing application ID=40, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:42:55.343Z",
+          "message": "Application 40 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:42:55.343Z",
+          "message": "Processing application ID=56, STAGE=DT1376_246:SUCCESS"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:42:55.343Z",
+          "message": "Application 56 is selected — skipping"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:42:55.343Z",
+          "message": "Processing finished successfully. Failed applications: 0"
+        }
+      ]
+    },
+    {
+      "id": "exec_1768553019986_0a1d9b2973af3",
+      "objectId": "36",
+      "entityTypeId": "1372",
+      "startedAt": "2026-01-16T08:43:39.986Z",
+      "finishedAt": "2026-01-16T08:43:40.957Z",
+      "logs": [
+        {
+          "level": "info",
+          "time": "2026-01-16T08:43:39.986Z",
+          "message": "Webhook handler started"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:43:39.999Z",
+          "message": "Raw request body received (428 chars)"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:43:39.999Z",
+          "message": "Parsed fields: ENTITY_TYPE_ID=1372, PROJECT_ID=36"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:43:39.999Z",
+          "message": "Processing project with ID=36"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:43:39.999Z",
+          "message": "Loading project from Bitrix24"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:43:40.302Z",
+          "message": "Project loaded successfully: TITLE=\"Биржа проектов #36\""
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:43:40.302Z",
+          "message": "Selected application detected: APPLICATION_ID=52"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:43:40.302Z",
+          "message": "Loading all applications linked to the project"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:43:40.957Z",
+          "message": "Total applications found: 3"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:43:40.957Z",
+          "message": "Processing application ID=50, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:43:40.957Z",
+          "message": "Application 50 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:43:40.957Z",
+          "message": "Processing application ID=52, STAGE=DT1376_246:NEW"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:43:40.957Z",
+          "message": "Application 52 is selected — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:43:40.957Z",
+          "message": "Processing application ID=54, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:43:40.957Z",
+          "message": "Application 54 already in FAIL stage — skipping"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:43:40.957Z",
+          "message": "Processing finished successfully. Failed applications: 0"
+        }
+      ]
+    },
+    {
+      "id": "exec_1768553171604_364f14345d5a5",
+      "objectId": "38",
+      "entityTypeId": "1372",
+      "startedAt": "2026-01-16T08:46:11.605Z",
+      "finishedAt": "2026-01-16T08:46:12.248Z",
+      "logs": [
+        {
+          "level": "info",
+          "time": "2026-01-16T08:46:11.605Z",
+          "message": "Webhook handler started"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:46:11.605Z",
+          "message": "Raw request body received (428 chars)"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:46:11.605Z",
+          "message": "Parsed fields: ENTITY_TYPE_ID=1372, PROJECT_ID=38"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:46:11.605Z",
+          "message": "Processing project with ID=38"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:46:11.605Z",
+          "message": "Loading project from Bitrix24"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:46:11.945Z",
+          "message": "Project loaded successfully: TITLE=\"Биржа проектов #38\""
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:46:11.945Z",
+          "message": "Selected application detected: APPLICATION_ID=56"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:46:11.945Z",
+          "message": "Loading all applications linked to the project"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:46:12.248Z",
+          "message": "Total applications found: 4"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:46:12.248Z",
+          "message": "Processing application ID=36, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:46:12.248Z",
+          "message": "Application 36 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:46:12.248Z",
+          "message": "Processing application ID=38, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:46:12.248Z",
+          "message": "Application 38 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:46:12.248Z",
+          "message": "Processing application ID=40, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:46:12.248Z",
+          "message": "Application 40 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:46:12.248Z",
+          "message": "Processing application ID=56, STAGE=DT1376_246:SUCCESS"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:46:12.248Z",
+          "message": "Application 56 is selected — skipping"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:46:12.248Z",
+          "message": "Processing finished successfully. Failed applications: 0"
+        }
+      ]
+    },
+    {
+      "id": "exec_1768553323794_19133018bf521",
+      "objectId": "42",
+      "entityTypeId": "1372",
+      "startedAt": "2026-01-16T08:48:43.797Z",
+      "finishedAt": "2026-01-16T08:48:44.792Z",
+      "logs": [
+        {
+          "level": "info",
+          "time": "2026-01-16T08:48:43.797Z",
+          "message": "Webhook handler started"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:48:43.798Z",
+          "message": "Raw request body received (428 chars)"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:48:43.798Z",
+          "message": "Parsed fields: ENTITY_TYPE_ID=1372, PROJECT_ID=42"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:48:43.798Z",
+          "message": "Processing project with ID=42"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:48:43.798Z",
+          "message": "Loading project from Bitrix24"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:48:44.778Z",
+          "message": "Project loaded successfully: TITLE=\"Биржа проектов #42\""
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:48:44.791Z",
+          "message": "Project has no selected application. No further actions required."
+        },
+        {
+          "level": "error",
+          "time": "2026-01-16T08:48:44.792Z",
+          "message": "Processing finished. Flushing"
+        }
+      ]
+    },
+    {
+      "id": "exec_1768553908413_4336b5f8d7699",
+      "objectId": "38",
+      "entityTypeId": "1372",
+      "startedAt": "2026-01-16T08:58:28.416Z",
+      "finishedAt": "2026-01-16T08:58:29.669Z",
+      "logs": [
+        {
+          "level": "info",
+          "time": "2026-01-16T08:58:28.417Z",
+          "message": "Webhook handler started"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:58:28.417Z",
+          "message": "Raw request body received (428 chars)"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:58:28.417Z",
+          "message": "Parsed fields: ENTITY_TYPE_ID=1372, PROJECT_ID=38"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:58:28.417Z",
+          "message": "Processing project with ID=38"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:58:28.417Z",
+          "message": "Loading project from Bitrix24"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:58:29.213Z",
+          "message": "Project loaded successfully: TITLE=\"Биржа проектов #38\""
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:58:29.213Z",
+          "message": "Selected application detected: APPLICATION_ID=56"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:58:29.213Z",
+          "message": "Loading all applications linked to the project"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:58:29.537Z",
+          "message": "Total applications found: 4"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:58:29.538Z",
+          "message": "Processing application ID=36, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:58:29.538Z",
+          "message": "Application 36 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:58:29.538Z",
+          "message": "Processing application ID=38, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:58:29.538Z",
+          "message": "Application 38 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:58:29.538Z",
+          "message": "Processing application ID=40, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:58:29.538Z",
+          "message": "Application 40 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:58:29.538Z",
+          "message": "Processing application ID=56, STAGE=DT1376_246:SUCCESS"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T08:58:29.538Z",
+          "message": "Application 56 is selected — skipping"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T08:58:29.538Z",
+          "message": "Processing finished successfully. Failed applications: 0"
+        },
+        {
+          "level": "error",
+          "time": "2026-01-16T08:58:29.668Z",
+          "message": "Processing finished. Flushing"
+        }
+      ]
+    },
+    {
+      "id": "exec_1768554066194_26a8b2b087fe4",
+      "objectId": "38",
+      "entityTypeId": "1372",
+      "startedAt": "2026-01-16T09:01:06.194Z",
+      "finishedAt": "2026-01-16T09:01:07.287Z",
+      "logs": [
+        {
+          "level": "info",
+          "time": "2026-01-16T09:01:06.194Z",
+          "message": "Webhook handler started"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:01:06.195Z",
+          "message": "Raw request body received (428 chars)"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:01:06.195Z",
+          "message": "Parsed fields: ENTITY_TYPE_ID=1372, PROJECT_ID=38"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:01:06.195Z",
+          "message": "Processing project with ID=38"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:01:06.195Z",
+          "message": "Loading project from Bitrix24"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:01:06.877Z",
+          "message": "Project loaded successfully: TITLE=\"Биржа проектов #38\""
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:01:06.877Z",
+          "message": "Selected application detected: APPLICATION_ID=56"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:01:06.877Z",
+          "message": "Loading all applications linked to the project"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:01:07.204Z",
+          "message": "Total applications found: 4"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:01:07.204Z",
+          "message": "Processing application ID=36, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:01:07.204Z",
+          "message": "Application 36 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:01:07.204Z",
+          "message": "Processing application ID=38, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:01:07.204Z",
+          "message": "Application 38 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:01:07.204Z",
+          "message": "Processing application ID=40, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:01:07.204Z",
+          "message": "Application 40 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:01:07.204Z",
+          "message": "Processing application ID=56, STAGE=DT1376_246:SUCCESS"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:01:07.204Z",
+          "message": "Application 56 is selected — skipping"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:01:07.204Z",
+          "message": "Processing finished successfully. Failed applications: 0"
+        },
+        {
+          "level": "error",
+          "time": "2026-01-16T09:01:07.287Z",
+          "message": "Processing finished. Flushing"
+        }
+      ]
+    },
+    {
+      "id": "exec_1768554197434_a1c98b88af7c",
+      "objectId": "38",
+      "entityTypeId": "1372",
+      "startedAt": "2026-01-16T09:03:17.434Z",
+      "finishedAt": "2026-01-16T09:03:18.631Z",
+      "logs": [
+        {
+          "level": "info",
+          "time": "2026-01-16T09:03:17.434Z",
+          "message": "Webhook handler started"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:03:17.434Z",
+          "message": "Raw request body received (428 chars)"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:03:17.434Z",
+          "message": "Parsed fields: ENTITY_TYPE_ID=1372, PROJECT_ID=38"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:03:17.434Z",
+          "message": "Processing project with ID=38"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:03:17.434Z",
+          "message": "Loading project from Bitrix24"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:03:18.154Z",
+          "message": "Project loaded successfully: TITLE=\"Биржа проектов #38\""
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:03:18.154Z",
+          "message": "Selected application detected: APPLICATION_ID=56"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:03:18.154Z",
+          "message": "Loading all applications linked to the project"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:03:18.456Z",
+          "message": "Total applications found: 4"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:03:18.456Z",
+          "message": "Processing application ID=36, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:03:18.456Z",
+          "message": "Application 36 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:03:18.456Z",
+          "message": "Processing application ID=38, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:03:18.456Z",
+          "message": "Application 38 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:03:18.456Z",
+          "message": "Processing application ID=40, STAGE=DT1376_246:FAIL"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:03:18.456Z",
+          "message": "Application 40 already in FAIL stage — skipping"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:03:18.456Z",
+          "message": "Processing application ID=56, STAGE=DT1376_246:SUCCESS"
+        },
+        {
+          "level": "debug",
+          "time": "2026-01-16T09:03:18.456Z",
+          "message": "Application 56 is selected — skipping"
+        },
+        {
+          "level": "info",
+          "time": "2026-01-16T09:03:18.456Z",
+          "message": "Processing finished successfully. Failed applications: 0"
+        },
+        {
+          "level": "error",
+          "time": "2026-01-16T09:03:18.631Z",
+          "message": "Processing finished. Flushing"
+        }
+      ]
+    }
+  ]
+}

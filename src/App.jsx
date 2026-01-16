@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { fetchExecutions } from "./api";
+// import { fetchExecutions } from "./api";
+import dataJSON from "./logs.json";
 
 function levelColor(level) {
   switch (level) {
@@ -11,12 +12,12 @@ function levelColor(level) {
 }
 
 export default function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(dataJSON);
   const [selected, setSelected] = useState(null);
 
-  useEffect(() => {
-    fetchExecutions().then(setData);
-  }, []);
+  // useEffect(() => {
+  //   fetchExecutions().then(setData);
+  // }, []);
 
   if (!data) {
     return (
@@ -47,6 +48,11 @@ export default function App() {
                 <div className="text-sm font-mono text-zinc-300 truncate">
                   {r.id}
                 </div>
+
+                <div className="text-xs font-mono text-zinc-300 truncate">
+                  {new Date(r.startedAt).toLocaleDateString()} {new Date(r.startedAt).toLocaleTimeString()}
+                </div>
+
                 <div className="text-xs text-zinc-500">
                   Object: {r.objectId} · Entity: {r.entityTypeId}
                 </div>

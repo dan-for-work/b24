@@ -59,7 +59,7 @@ function createExecutionLogger({ executionId, objectId, entityTypeId }) {
       };
 
     // --- append record
-    existing.records.push({
+    existing.records.unshift({
       id: executionId,
       objectId,
       entityTypeId,
@@ -218,7 +218,7 @@ export default async (request) => {
     await logger.flush();
     return error("error", 500);
   } finally {
-    logger.error(`Processing finished. Flushing`);
+    logger.info(`Processing finished. Flushing`);
     await logger.flush();
     return ok("processed", 200);
   }
