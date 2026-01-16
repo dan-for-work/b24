@@ -12,6 +12,7 @@ function levelColor(level) {
 
 export default function App() {
   const [data, setData] = useState(null);
+  const [debug, setDebug] = useState(false);
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
@@ -102,12 +103,20 @@ export default function App() {
 
             {/* Logs */}
             <div>
-              <h3 className="text-lg font-semibold mb-3">Logs</h3>
+              <div className="flex flex-row justify-between items-center w-full mb-4">
+                <h3 className="text-lg font-semibold">Logs</h3>
+                <button 
+                  onClick={() => setDebug(!debug)}
+                  className="bg-zinc-800 border-zinc-600 p-2 rounded-lg border text-sm"
+                >
+                  {debug ? "Show" : "Hide"} debug logs
+                </button>
+              </div>
 
               <div className="bg-black border border-zinc-800 rounded-lg overflow-hidden">
                 <pre className="text-sm font-mono p-4 overflow-x-auto">
                   {selected.logs.map((l, i) => (
-                    <div key={i} className="whitespace-pre-wrap">
+                    (debug ? l.level !== "debug" : true) && (<div key={i} className="whitespace-pre-wrap">
                       <span className="text-zinc-500">
                         [{l.time}]
                       </span>{" "}
@@ -115,7 +124,7 @@ export default function App() {
                         [{l.level.toUpperCase()}]
                       </span>{" "}
                       <span>{l.message}</span>
-                    </div>
+                    </div>)
                   ))}
                 </pre>
               </div>
