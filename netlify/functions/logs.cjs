@@ -1,6 +1,6 @@
 const { getStore } = require("@netlify/blobs");
 
-module.exports = async () => {
+export default async () => {
   const store = getStore("logs-json");
 
   const data =
