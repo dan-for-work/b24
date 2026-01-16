@@ -1,8 +1,9 @@
 // =====================
 // CONSTANTS
 // =====================
-const STORE_NAME = "executions";
-const STORE_KEY = "executions.json";
+const TEXT_LOG_STORE = "logs-text";
+const JSON_LOG_STORE = "logs-json";
+const JSON_LOG_KEY = "executions.json";
 
 const PROJECT_ENTITY_TYPE_ID = "1372";
 const APPLICATION_ENTITY_TYPE_ID = 1376;
@@ -15,29 +16,77 @@ const { getStore } = require("@netlify/blobs");
 
 const LOG_STORE = "logs";
 
-function createBlobLogger(executionId) {
-  const store = getStore(LOG_STORE);
-  const lines = [];
+function createExecutionLogger({ executionId, objectId, entityTypeId }) {
+  const textStore = getStore(TEXT_LOG_STORE);
+  const jsonStore = getStore(JSON_LOG_STORE);
+
+  const startedAt = new Date().toISOString();
+  const textLines = [];
+  const jsonLogs = [];
 
   function write(level, message) {
-    const ts = new Date().toISOString().replace("T", " ").replace("Z", "");
-    const line = `${ts} [${level}] [${executionId}] ${message}`;
-    lines.push(line);
-    console.log(line);
+    const time = new Date().toISOString();
+
+    // console
+    console.log(`[${level.toUpperCase()}] ${message}`);
+
+    // text log
+    const textLine = `${time} [${level.toUpperCase()}] ${message}`;
+    textLines.push(textLine);
+
+    // json log
+    jsonLogs.push({
+      level,
+      time,
+      message
+    });
+  }
+
+  async function flush() {
+    const finishedAt = new Date().toISOString();
+
+    // --- save text log
+    await textStore.set(
+      `${executionId}.log`,
+      textLines.join("\n"),
+      { contentType: "text/plain" }
+    );
+
+    // --- load existing json
+    const existing =
+      (await jsonStore.get(JSON_LOG_KEY, { type: "json" })) || {
+        version: 1,
+        updatedAt: null,
+        records: []
+      };
+
+    // --- append record
+    existing.records.push({
+      id: executionId,
+      objectId,
+      entityTypeId,
+      startedAt,
+      finishedAt,
+      logs: jsonLogs
+    });
+
+    // ограничение на размер (например, последние 200 запусков)
+    existing.records = existing.records.slice(-200);
+    existing.updatedAt = finishedAt;
+
+    await jsonStore.set(
+      JSON_LOG_KEY,
+      JSON.stringify(existing, null, 2),
+      { contentType: "application/json" }
+    );
   }
 
   return {
-    info:  (m) => write("INFO", m),
-    debug: (m) => write("DEBUG", m),
-    warn:  (m) => write("WARN", m),
-    error: (m) => write("ERROR", m),
-
-    async flush() {
-      const key = `${executionId}.log`;
-      await store.set(key, lines.join("\n"), {
-        contentType: "text/plain"
-      });
-    }
+    info:  (m) => write("info", m),
+    debug: (m) => write("debug", m),
+    warn:  (m) => write("warn", m),
+    error: (m) => write("error", m),
+    flush
   };
 }
 
@@ -45,23 +94,25 @@ function createBlobLogger(executionId) {
 // HANDLER (v3)
 // =====================
 export default async (request) => {
-  const startedAt = Date.now();
   const executionId = `exec_${Date.now()}_${Math.random().toString(16).slice(2)}`;
 
-  const logger = createBlobLogger(executionId);
+  const bodyText = await request.text();
+  const body = new URLSearchParams(bodyText);
 
-  logger.info("Webhook handler started");
-
+  const entityTypeId = body.get("data[FIELDS][ENTITY_TYPE_ID]");
+  const projectId = body.get("data[FIELDS][ID]");
+  
+  const logger = createExecutionLogger({
+    executionId,
+    objectId: projectId,
+    entityTypeId
+  });
+  
+  
   try {
-    // --- read request
-    const bodyText = await request.text();
+    logger.info("Webhook handler started");
+    
     logger.debug(`Raw request body received (${bodyText.length} chars)`);
-
-    const body = new URLSearchParams(bodyText);
-
-    const entityTypeId = body.get("data[FIELDS][ENTITY_TYPE_ID]");
-    const projectId = body.get("data[FIELDS][ID]");
-
     logger.debug(
       `Parsed fields: ENTITY_TYPE_ID=${entityTypeId}, PROJECT_ID=${projectId}`
     );
@@ -158,12 +209,9 @@ export default async (request) => {
       failedCount++;
     }
 
-    const durationMs = Date.now() - startedAt;
-
     logger.info(
       `Processing finished successfully. Failed applications: ${failedCount}`
     );
-    logger.info(`Execution time: ${durationMs} ms`);
     await logger.flush();
     return ok("processed");
 
