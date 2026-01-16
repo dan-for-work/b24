@@ -50,7 +50,7 @@ export default async (request) => {
   const startedAt = Date.now();
   const executionId = `exec_${Date.now()}_${Math.random().toString(16).slice(2)}`;
 
-  const logger = createLogger(executionId);
+  const logger = createBlobLogger(executionId);
 
   logger.info("Webhook handler started");
 
